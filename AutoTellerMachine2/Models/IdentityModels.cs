@@ -16,6 +16,8 @@ namespace AutoTellerMachine2.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        public string Pin { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -29,5 +31,10 @@ namespace AutoTellerMachine2.Models
         {
             return new ApplicationDbContext();
         }
+
+        public string UserName { get; internal set; }
+        public DbSet<CheckingAccount> CheckingAccounts { get; set; }
+
+        public DbSet<Transaction> Transactions { get; set; }
     }
 }
